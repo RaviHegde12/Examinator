@@ -2,7 +2,7 @@
 
 # Introduction
 
-Write about your project in this area.
+The automated answer sheet evaluator. Given the marking scheme and answer blueprint. The software is able to evaluate the answer(hand written) to give unbiased score.
 
 # Developer Guide
 

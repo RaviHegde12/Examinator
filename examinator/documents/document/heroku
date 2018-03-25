@@ -1,0 +1,31 @@
+Creating a personal App:
+Login to heroku
+Under personal apps click on create new app
+Choose personal app under team drop down, add app name 
+Click on create app
+
+Local Setup - To push code to heroku:
+Install heroku
+sudo add-apt-repository "deb https://cli-assets.heroku.com/branches/stable/apt ./"
+curl -L https://cli-assets.heroku.com/apt/release.key | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install heroku
+Check heroku --version
+Login to heroku using: heroku login
+Create a heroku directory in local 
+git clone charcha repo in this directory (https://github.com/hashedin/charcha)
+cd charcha
+git remote add heroku your_heroku_repo_url	
+Git remote -v This should have two remotes origin pointing to charcha git and heroku pointing to your heroku repo
+
+Steps to deploy your code:
+Go to requirements/base.txt. Change psycopg2==2.6.2 to psycopg2==2.7.4 (This is specific to charcha to support python 3, don’t need to do it generally while deploying app on heroku)
+Add environment variable “DJANGO_SETTINGS_MODULE” in heroku settings as “charcha.settings.production”
+Add your heroku domain in ALLOWED_HOST in settings > production.py
+git push heroku master: this will deploy your code on heroku
+
+Admin login setup and apply migrations:
+Run initial migrations: heroku run python manage.py migrate
+Create a django super user: heroku run python manage.py createsuperuser
+
+See the deployed application by running - heroku open

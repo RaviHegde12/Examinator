@@ -1,0 +1,18 @@
+
+Django==1.11.1
+
+django-filter==1.0.2
+django-rest-swagger==2.1.2
+djangorestframework==3.6.3
+
+whitenoise==3.3.0
+dj-database-url==0.4.2
+dj-email-url==0.0.10
+django-bootstrap-form==3.4
+django-bootstrap3 == 9.1
+
+psycopg2==2.7.1
+
+
+
+

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="box">
+        <textarea class="editable">Answer Here</textarea>
+        <div class="options">
+          <button class="btn btn-primary">Save</button>
+          <a class="link" href="{% url 'file_upload' %}">
+            <div class="btn btn-primary">Upload</div>
+          </a>
+        </div>
+        <div class="form-group">
+            <select class="form-control">
+              <option>Answer-Sheet-1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="box">
+        <textarea class="editable">Blueprint Here</textarea>
+        <div class="options1">
+          <button class="btn btn-primary">Save</button>
+          <a class="link" href="{% url 'file_upload' %}">
+            <div class="btn btn-primary">Upload</div>
+          </a>
+        </div>
+        <div class="form-group">
+            <select class="form-control">
+              <option>Blueprint-1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <button class="btn btn-primary">Generate Report</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="result">
+          Report Card Will Appear Here
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<footer class="footer">
+  <p>Footer</p>
+</footer>
+{% endblock %}

@@ -1,4 +1,5 @@
 import json
+from .AnswerProcessor.textProcessor import evaluation
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import DocumentForm
@@ -29,7 +30,12 @@ def generate(request):
         answer = request.POST.get('answer', None)
         blueprint = request.POST.get('blueprint', None)
         data = {}
-        data['result'] = 'Successfully returned from views'
+        result = evaluation(blueprint, answer)
+        if result.parse():
+            data['result'] = 'success'
+        else:
+            data['result'] = 'failed'
+        print(data)
         return HttpResponse(json.dumps(data), content_type='application/json')
     else:
         return HttpResponse("Request method is not post!")

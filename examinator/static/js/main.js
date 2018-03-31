@@ -16,7 +16,9 @@ function generate()
                 csrfmiddlewaretoken: '{{ csrf_token }}'
             },
             success: function(response) {
-                console.log("Success")
+                console.log(response.result)
+                let report = document.getElementById("report");
+                report.innerHTML = response.result;
             },
             error: function(result) {
                 console.log(result)

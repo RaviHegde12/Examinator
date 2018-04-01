@@ -1,5 +1,7 @@
 import json
+import os
 from .AnswerProcessor.textProcessor import evaluation
+from .AnswerProcessor.marksGenerator import markGenerator
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import DocumentForm
@@ -35,7 +37,10 @@ def generate(request):
             data['result'] = 'success'
         else:
             data['result'] = 'failed'
-        print(data)
+        dirname = os.path.dirname(__file__)
+        filename = os.path.join(dirname, "./testData/marksGenerator.json")
+        result = markGenerator(json.load(open(filename, 'r')))
+        print(result.computeMarks())
         return HttpResponse(json.dumps(data), content_type='application/json')
     else:
         return HttpResponse("Request method is not post!")

@@ -27,6 +27,7 @@ from rest_framework_swagger.views import get_swagger_view
 
 from .authentication.views import UserViewSet
 from .authentication import urls as authentication_urls
+from django.contrib.auth import views as auth_views
 
 from . settings import common
 
@@ -39,6 +40,9 @@ schema_view = get_swagger_view(title='examinator APIs')
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('examinator.evaluator.urls')),
+    url(r'^login/$', auth_views.login, name="login"),
+    url(r'^logout/$', auth_views.logout, name="logout"),
+    url(r'^signup/$', views.signup, name="signup"),
 
     url(r'^swagger/$', schema_view),
     url(r'^api/v1/', include(authentication_urls)),

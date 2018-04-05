@@ -84,7 +84,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'examinator.authentication',
     'examinator.evaluator',
-    'bootstrap3',
+    'bootstrapform',
 
 ]
 

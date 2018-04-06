@@ -7,6 +7,8 @@ from django.shortcuts import render, redirect
 from .forms import DocumentForm
 from django.views.decorators.csrf import csrf_exempt
 from .AnswerProcessor.reportGenerator import report
+from reportlab.pdfgen import canvas
+from .report.pdfReportGenerator import PdfReport
 
 
 def homepage(request):
@@ -46,3 +48,15 @@ def generate(request):
         return HttpResponse(json.dumps(data), content_type='application/json')
     else:
         return HttpResponse("Request method is not post!")
+
+def generate_report(request):
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+    dirname = os.path.dirname(__file__)
+    filename = os.path.join(dirname, "./testData/marksGenerator.json")
+    result = markGenerator(json.load(open(filename, 'r')))
+    r = result.computeMarks()
+    print(r)
+    p = PdfReport(r)
+    response.write(p.getPdf())
+    return response

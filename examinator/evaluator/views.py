@@ -6,8 +6,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import DocumentForm
 from django.views.decorators.csrf import csrf_exempt
-from .AnswerProcessor.reportGenerator import report
-from reportlab.pdfgen import canvas
+#from .AnswerProcessor.reportGenerator import report
+#from reportlab.pdfgen import canvas
 from .report.pdfReportGenerator import PdfReport
 
 
@@ -43,15 +43,14 @@ def generate(request):
         dirname = os.path.dirname(__file__)
         filename = os.path.join(dirname, "./testData/marksGenerator.json")
         result = markGenerator(json.load(open(filename, 'r')))
-        output = report(result.computeMarks())
-        output.generateReport()
+        # output = report(result.computeMarks())
+        # output.generateReport()
         return HttpResponse(json.dumps(data), content_type='application/json')
     else:
         return HttpResponse("Request method is not post!")
 
 def generate_report(request):
-    response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+    response = HttpResponse(content_type='text/html')
     dirname = os.path.dirname(__file__)
     filename = os.path.join(dirname, "./testData/marksGenerator.json")
     result = markGenerator(json.load(open(filename, 'r')))

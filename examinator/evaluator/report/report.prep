@@ -1,0 +1,21 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <div id='report'>
+            {{for student in students['students']}}
+                <h1>Student:{{student}}</h1>
+                <table>
+                    <tr>
+                        <th>Subject</th><th>MaxMarks</th><th>Marks</th>
+                    </tr>
+                    {{for subject in students['students'][student]}}
+                        <tr>
+                            <td>{{subject}}</td><td>{{students['students'][student][subject]['maxMarks']}}</td><td>{{students['students'][student][subject]['marks']}}</td>
+                        </tr>
+                    {{endfor}}
+                </table>
+            {{endfor}}
+        </div>
+    </body>
+</html>

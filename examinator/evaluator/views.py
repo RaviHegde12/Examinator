@@ -50,12 +50,10 @@ def generate(request):
         return HttpResponse("Request method is not post!")
 
 def generate_report(request):
-    response = HttpResponse(content_type='text/html')
+    response = HttpResponse(content_type='application/pdf')
     dirname = os.path.dirname(__file__)
     filename = os.path.join(dirname, "./testData/marksGenerator.json")
     result = markGenerator(json.load(open(filename, 'r')))
-    r = result.computeMarks()
-    print(r)
-    p = PdfReport(r)
+    p = PdfReport(result.computeMarks())
     response.write(p.getPdf())
     return response

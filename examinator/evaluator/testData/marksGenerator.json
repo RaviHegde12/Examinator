@@ -1,0 +1,116 @@
+{
+    "students":[
+        {
+            "id": 1,
+            "subjects":[
+                {
+                    "id": 1,
+                    "maxMarks": 100,
+                    "answerBooklet":[
+                        {
+                            "maxMarks": 50,
+                            "statements":[
+                                {
+                                    "marks": 0.3,
+                                    "correctness": 1
+                                },
+                                {
+                                    "marks": 0.7,
+                                    "correctness": 0
+                                }
+                            ]
+                        },
+                        {
+                            "maxMarks": 50,
+                            "statements":[
+                                {
+                                    "marks": 0.5,
+                                    "correctness": 1
+                                },
+                                {
+                                    "marks": 0.5,
+                                    "correctness": 1
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "maxMarks": 100,
+                    "answerBooklet":[
+                        {
+                            "maxMarks": 25,
+                            "statements":[
+                                {
+                                    "marks": 0.7,
+                                    "correctness": 1
+                                },
+                                {
+                                    "marks": 0.3,
+                                    "correctness": 1
+                                }
+                            ]
+                        },
+                        {
+                            "maxMarks": 75,
+                            "statements":[
+                                {
+                                    "marks": 0.75,
+                                    "correctness": 1
+                                },
+                                {
+                                    "marks": 0.25,
+                                    "correctness": 0
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ] 
+        },
+        {
+            "id": 2,
+            "subjects":[
+                {
+                    "id": 1,
+                    "maxMarks": 100,
+                    "answerBooklet":[
+                        {
+                            "maxMarks": 100,
+                            "statements":[
+                                {
+                                    "marks": 0.3,
+                                    "correctness": 1
+                                },
+                                {
+                                    "marks": 0.7,
+                                    "correctness": 0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "maxMarks": 100,
+                    "answerBooklet":[
+                        {
+                            "maxMarks": 100,
+                            "statements":[
+                                {
+                                    "marks": 0.3,
+                                    "correctness": 1
+                                },
+                                {
+                                    "marks": 0.7,
+                                    "correctness": 0
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ] 
+        }
+    ]
+}

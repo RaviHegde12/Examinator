@@ -9,26 +9,33 @@
                     "answerBooklet":[
                         {
                             "maxMarks": 50,
+                            "question": "Mention any two devices that contain convex lens?",
                             "statements":[
                                 {
                                     "marks": 0.3,
+                                    "answer": "Simple Microscope",
                                     "correctness": 1
                                 },
                                 {
                                     "marks": 0.7,
+                                    "answer": "Mirror",
+                                    "error": "Wrong Facts",
                                     "correctness": 0
                                 }
                             ]
                         },
                         {
                             "maxMarks": 50,
+                            "question": "Why mercury is difficult to observe?",
                             "statements":[
                                 {
                                     "marks": 0.5,
+                                    "answer": "It is close to Sun",
                                     "correctness": 1
                                 },
                                 {
                                     "marks": 0.5,
+                                    "answer": "Hidden by the glare of the Sun",
                                     "correctness": 1
                                 }
                             ]
@@ -40,27 +47,39 @@
                     "maxMarks": 100,
                     "answerBooklet":[
                         {
-                            "maxMarks": 25,
+                            "maxMarks": 75,
+                            "question": "Define Political Science?",
                             "statements":[
                                 {
-                                    "marks": 0.7,
+                                    "marks": 0.4,
+                                    "answer": "Study of Origin and development of the state",
                                     "correctness": 1
                                 },
                                 {
                                     "marks": 0.3,
+                                    "answer": "Function of government, right and duties of citizens",
                                     "correctness": 1
+                                },
+                                {
+                                    "marks": 0.3,
+                                    "answer": "",
+                                    "Wrong": "Expected more!",
+                                    "correctness": 0
                                 }
                             ]
                         },
                         {
-                            "maxMarks": 75,
+                            "maxMarks": 25,
+                            "question": "What is citizenship?",
                             "statements":[
                                 {
-                                    "marks": 0.75,
+                                    "marks": 0.25,
+                                    "answer": "Permanent member of the state",
                                     "correctness": 1
                                 },
                                 {
-                                    "marks": 0.25,
+                                    "marks": 0.75,
+                                    "answer": "Possesses civil and political rights",
                                     "correctness": 0
                                 }
                             ]
@@ -78,13 +97,17 @@
                     "answerBooklet":[
                         {
                             "maxMarks": 100,
+                            "question": "Mention 2 uses of microwaves?",
                             "statements":[
                                 {
                                     "marks": 0.3,
+                                    "answer": "Mobile Phones",
                                     "correctness": 1
                                 },
                                 {
                                     "marks": 0.7,
+                                    "answer": "TV remotes",
+                                    "wrong": "Wrong Facts!",
                                     "correctness": 0
                                 }
                             ]
@@ -97,13 +120,17 @@
                     "answerBooklet":[
                         {
                             "maxMarks": 100,
+                            "question": "Mention types of citizenships?",
                             "statements":[
                                 {
-                                    "marks": 0.3,
+                                    "marks": 0.5,
+                                    "answer": "single",
                                     "correctness": 1
                                 },
                                 {
-                                    "marks": 0.7,
+                                    "marks": 0.5,
+                                    "answer": "Dual",
+                                    "wrong": "Wrong Facts!",
                                     "correctness": 0
                                 }
                             ]

@@ -1,6 +1,5 @@
 import json
 import os
-
 from .AnswerProcessor.textProcessor import evaluation
 from .AnswerProcessor.marksGenerator import markGenerator
 from django.http import HttpResponse
@@ -11,8 +10,8 @@ from django.views.decorators.csrf import csrf_exempt
 #from .AnswerProcessor.reportGenerator import report
 #from reportlab.pdfgen import canvas
 from .report.pdfReportGenerator import PdfReport
+from .report.reportCardGenerator import ReportCard
 from django.db import connection
-
 
 def homepage(request):
     return render(request, '../templates/home.html')
@@ -77,6 +76,7 @@ def generate_report(request):
     dirname = os.path.dirname(__file__)
     filename = os.path.join(dirname, "./testData/marksGenerator.json")
     result = markGenerator(json.load(open(filename, 'r')))
-    p = PdfReport(result.computeMarks())
-    response.write(p.getPdf())
+    pdfFile = ReportCard(result.computeMarks(), 'students').getPdf()
+    response.write(pdfFile.read())
+    pdfFile.close()
     return response

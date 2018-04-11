@@ -1,0 +1,20 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <div id="detailed-report">
+            <h2>StudentId:{{studentId}}</h2>
+            <h3>SubjectId:{{subject['id']}}</h3>
+            {{for answer in subject['answerBooklet']}}
+                <h4>Q: {{answer['question']}}</h4>
+                <p>A: 
+                {{for statement in answer['statements']}}
+                    {{statement['answer']}}.
+                {{endfor}}
+                </p>
+                <p>Marks: {{answer['marks']}}/{{answer['maxMarks']}}</p>
+            {{endfor}}
+            <h4>Total: {{subject['totalMarks']}}/{{subject['maxMarks']}}</h4>
+        </div>
+    </body>
+</html>

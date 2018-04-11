@@ -10,7 +10,7 @@ class ReportCard(PdfReport):
     def getHtml(self):
         template = preppy.getModule(self.prepFileDir + '/' + self.prepFileName)
         self.pages = []
-        for student in self.result[self.prepParamVar]:
+        for student in self.result['students']:
             temp_html = template.getOutput({ self.prepParamVar : self.result, 'student': student})
             html_file = self.prepFileDir + '/' + str(student) + '.html'
             html_write = open(html_file, 'w')

@@ -10,6 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 #from reportlab.pdfgen import canvas
 from .report.pdfReportGenerator import PdfReport
 from .report.reportCardGenerator import ReportCard
+from .report.detailedReportGenerator import DetailedReport
 
 
 def homepage(request):
@@ -46,6 +47,7 @@ def generate(request):
         result = markGenerator(json.load(open(filename, 'r')))
         # output = report(result.computeMarks())
         # output.generateReport()
+        #DetailedReport(json.load(open(filename, 'r')), 'students').getPdf()
         return HttpResponse(json.dumps(data), content_type='application/json')
     else:
         return HttpResponse("Request method is not post!")
@@ -55,7 +57,7 @@ def generate_report(request):
     dirname = os.path.dirname(__file__)
     filename = os.path.join(dirname, "./testData/marksGenerator.json")
     result = markGenerator(json.load(open(filename, 'r')))
-    pdfFile = ReportCard(result.computeMarks(), 'students').getPdf()
+    pdfFile = DetailedReport(json.load(open(filename, 'r')), 'subject').getPdf()
     response.write(pdfFile.read())
     pdfFile.close()
     return response

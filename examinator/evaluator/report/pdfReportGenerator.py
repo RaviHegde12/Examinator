@@ -16,8 +16,10 @@ class PdfReport():
 
     def getReport(self):
         html = self.getHtml()
-        pdfkit.from_file(html, self.prepFileDir + '/' + self.outputFileName)
-        self.clean()
+        try:
+            pdfkit.from_file(html, self.prepFileDir + '/' + self.outputFileName)
+        finally:
+            self.clean()
         return open(self.prepFileDir + '/' + self.outputFileName, 'rb')
 
     def getPdf(self):

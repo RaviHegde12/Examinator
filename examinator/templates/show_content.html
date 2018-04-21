@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Examinator</title>
+    <script>
+      var myText = document.getElementById('content');
+      console.log(myText);
+    </script>
+  </head>
+  <body>
+    {% for obj in objects %}
+
+    <p id="content">
+      file name: {{obj.description}} <br>
+      file content: {{obj.display_document_content}}
+    </p>
+
+    {% endfor %}
+  </body>
+</html>

@@ -1,14 +1,17 @@
 import json
 import os
+
 from .AnswerProcessor.textProcessor import evaluation
 from .AnswerProcessor.marksGenerator import markGenerator
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import DocumentForm
+from .models import Document
 from django.views.decorators.csrf import csrf_exempt
 #from .AnswerProcessor.reportGenerator import report
 #from reportlab.pdfgen import canvas
 from .report.pdfReportGenerator import PdfReport
+from django.db import connection
 
 
 def homepage(request):
@@ -17,9 +20,14 @@ def homepage(request):
 
 def model_form_upload(request):
     if request.method == 'POST':
+        # f = request.FILES['file'].read()
+        # print(f)
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
+            # file = request.FILES['file'].read()
+            # print(file)
             form.save()
+            # handle_uploaded_file(request.FILES['file'])
             return redirect('homepage')
 
     else:
@@ -27,6 +35,21 @@ def model_form_upload(request):
     return render(request, 'model_form_upload.html',{
         'form':form
     })
+
+
+# def handle_uploaded_file(f):
+#     with open('test.txt', 'wb+') as destination:
+#         for chunk in f.chunks():
+#             destination.write(chunk)
+
+
+def show_content(request):
+    # pass
+    objects = Document.objects.all()
+    # for obj in objects:
+    #     print(obj.description)
+        # print(obj.display_document_content)
+    return render(request, 'show_content.html', {'objects': objects})
 
 
 @csrf_exempt

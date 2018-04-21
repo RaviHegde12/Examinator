@@ -5,6 +5,7 @@ from django.conf.urls import url
 urlpatterns = [
     url(r'^$', views.homepage, name='homepage'),
     url(r'^file_upload/$', views.model_form_upload, name='file_upload'),
+    url(r'^show_content/$', views.show_content, name='show_content'),
     url(r'^generate/$', views.generate, name='generate'),
     url(r'^report/$', views.generate_report, name='generateReport'),
 ]

@@ -10,8 +10,8 @@
     {% for obj in objects %}
 
     <p id="content">
-      file name: {{obj.description}} <br>
-      file content: {{obj.display_document_content}}
+      file name: {{obj.description }} <br>
+      file content: {{obj.display_document_content | safe}}
     </p>
 
     {% endfor %}

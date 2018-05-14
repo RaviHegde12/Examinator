@@ -3,6 +3,7 @@ import os
 from .AnswerProcessor.textProcessor import evaluation
 from .AnswerProcessor.marksGenerator import markGenerator
 from django.http import HttpResponse
+from .OCR.image_to_text_converter import ImageToTextConverter
 from django.shortcuts import render, redirect
 from .forms import DocumentForm
 from .models import Document
@@ -28,6 +29,15 @@ def model_form_upload(request):
             # print(file)
             form.save()
             # handle_uploaded_file(request.FILES['file'])
+            
+            
+            #fetching the name of the file
+            for filename, file in request.FILES.items() :
+                name = request.FILES[filename].name
+            form.save()
+            print("\n\n\n\n\n",name,"\n\n\n\n\n\n")
+            ImageToTextConverter(name)
+            
             return redirect('homepage')
 
     else:

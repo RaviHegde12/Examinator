@@ -280,6 +280,7 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_HOST = os.environ.get('DJANGO_STATIC_HOST', '')
 STATIC_URL = '/static/'
+KEY = "jBPGxwWKunbKkq8o"
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'documents')
 MEDIA_URL = '/documents/'
 

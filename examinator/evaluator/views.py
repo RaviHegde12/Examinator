@@ -38,6 +38,9 @@ def model_form_upload(request):
             print("\n\n\n\n\n",name,"\n\n\n\n\n\n")
             ImageToTextConverter(name)
             
+            #checking the grammar
+            syntax_check("text_"+name+".txt")
+
             return redirect('homepage')
 
     else:

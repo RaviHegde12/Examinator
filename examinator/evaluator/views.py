@@ -1,5 +1,7 @@
 import json
 import os
+
+from examinator.evaluator.Syntax_Checker.syntax_checker import syntax_check
 from .AnswerProcessor.textProcessor import evaluation
 from .AnswerProcessor.marksGenerator import markGenerator
 from django.http import HttpResponse

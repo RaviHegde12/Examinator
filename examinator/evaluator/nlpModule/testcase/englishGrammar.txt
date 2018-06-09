@@ -1,0 +1,42 @@
+NN -> living | environment | Pollution | nature | light | water | air | effect | process | soil | thermal | land | noise | Anything | pollution
+VBD -> added
+IN -> while | on | as | in | of | by | into
+DT -> The | the | each
+WDT -> that
+NNS -> results | toxins | types | resources | things | parts
+VBG -> producing
+JJ -> radioactive | unsuitable | poisonous | unsafe | other | such | s | harmful | many
+CC -> and | or
+VBZ -> is | makes
+VBN -> inhaled | released | called
+. -> .
+NNP -> ’
+, -> ,
+TO -> to
+VB -> use | be
+MD -> can
+: -> :
+VBP -> are | breathe
+CD -> one
+PRP -> us | we
+NN -> water | soil | air | noise | living | thermal | Anything | pollution | Pollution | nature | environment | land | light | process | effect
+VBD -> added
+IN -> into | as | on | by | in | while | of
+DT -> the | each | The
+WDT -> that
+NNS -> parts | things | toxins | types | results | resources
+VBG -> producing
+JJ -> s | unsafe | other | harmful | such | unsuitable | many | poisonous | radioactive
+CC -> and | or
+VBZ -> makes | is
+VBN -> called | released | inhaled
+. -> .
+NNP -> ’
+, -> ,
+TO -> to
+VB -> use | be
+MD -> can
+: -> :
+VBP -> are | breathe
+CD -> one
+PRP -> we | us

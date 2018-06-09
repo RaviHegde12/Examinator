@@ -1,0 +1,106 @@
+Anything NN
+added VBD
+into IN
+the DT
+environment NN
+that WDT
+results NNS
+in IN
+producing VBG
+harmful JJ
+or CC
+poisonous JJ
+effect NN
+on IN
+living NN
+things NNS
+is VBZ
+called VBN
+pollution NN
+. .
+Pollution NN
+is VBZ
+the DT
+process NN
+that WDT
+makes VBZ
+nature NN
+’ NNP
+s JJ
+resources NNS
+such JJ
+as IN
+land NN
+, ,
+water NN
+, ,
+air NN
+or CC
+other JJ
+parts NNS
+of IN
+the DT
+environment NN
+unsafe JJ
+or CC
+unsuitable JJ
+to TO
+use VB
+. .
+Pollution NN
+can MD
+be VB
+of IN
+many JJ
+types NNS
+: :
+soil NN
+, ,
+air NN
+, ,
+water NN
+, ,
+thermal NN
+, ,
+radioactive JJ
+, ,
+noise NN
+, ,
+and CC
+light NN
+. .
+The DT
+toxins NNS
+released VBN
+are VBP
+inhaled VBN
+by IN
+each DT
+one CD
+of IN
+us PRP
+while IN
+we PRP
+breathe VBP
+. .
+NN -> Anything | environment | effect | living | pollution | Pollution | process | nature | land | water | air | environment | Pollution | soil | air | water | thermal | noise | light
+VBD -> added
+IN -> into | in | on | as | of | of | by | of | while
+DT -> the | the | the | The | each
+WDT -> that | that
+NNS -> results | things | resources | parts | types | toxins
+VBG -> producing
+JJ -> harmful | poisonous | s | such | other | unsafe | unsuitable | many | radioactive
+CC -> or | or | or | and
+VBZ -> is | is | makes
+VBN -> called | released | inhaled
+. -> . | . | . | .
+NNP -> ’
+, -> , | , | , | , | , | , | , | ,
+TO -> to
+VB -> use | be
+MD -> can
+: -> :
+VBP -> are | breathe
+CD -> one
+PRP -> us | we

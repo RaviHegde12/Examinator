@@ -1,62 +1,63 @@
 {% extends "base.html" %}
 {% block content %}
 <body>
+<div id="wrap">
 <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12" style="text-align: center;">
+      <h1>Welcome To Examinator</h1>
+      <h3>Your online Evaluator!</h3>
+      <p>Type the answer and Blueprint below or Upload the images of the paper.</p>
+    </div>
+  </div>
   <div class="row">
     <div class="col-sm-6">
       <div class="box">
-        <textarea class="editable" id="answer-area">Answer Here</textarea>
+        <textarea class="editable" id="answer-area" placeholder="Answer Here"></textarea>
         <div class="options">
           <button class="btn btn-primary">Save</button>
+          {% if request.user.is_authenticated %}
           <a class="link" href="{% url 'file_upload' %}">
             <div class="btn btn-primary">Upload</div>
           </a>
+          {% else %}
+          <a class="link" href="{% url 'login' %}">
+            <div class="btn btn-primary">Upload</div>
+          </a>
+          {% endif %}
         </div>
-        <div class="form-group">
-            <select class="form-control">
-              <option>Answer-Sheet-1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-            </select>
-          </div>
       </div>
     </div>
     <div class="col-sm-6">
       <div class="box">
-        <textarea class="editable" id="blueprint-area">Blueprint Here</textarea>
+        <textarea class="editable" id="blueprint-area" placeholder="Blueprint Here"></textarea>
         <div class="options1">
           <button class="btn btn-primary">Save</button>
+          {% if request.user.is_authenticated %}
           <a class="link" href="{% url 'file_upload' %}">
             <div class="btn btn-primary">Upload</div>
           </a>
+          {% else %}
+          <a class="link" href="{% url 'login' %}">
+            <div class="btn btn-primary">Upload</div>
+          </a>
+          {% endif %}
         </div>
-        <div class="form-group">
-            <select class="form-control">
-              <option>Blueprint-1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-            </select>
-          </div>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-12 text-center">
+      {% if request.user.is_authenticated %}
       <button class="btn btn-primary" onclick="generate();">Generate Report</button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <div id="report" class="result">
-          Report Card Will Appear Here
-      </div>
+      {% else %}
+      <a href="{% url 'login' %}"><button class="btn btn-primary">Generate Report</button></a>
+      {% endif %}
     </div>
   </div>
 </div>
-</body>
-<footer class="footer">
-  <p>Footer</p>
+</div>
+<footer class="footer">Footer
 </footer>
+</body>
 {% endblock %}

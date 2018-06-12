@@ -15,6 +15,11 @@ from django.views.decorators.csrf import csrf_exempt
 from .report.pdfReportGenerator import PdfReport
 from .report.reportCardGenerator import ReportCard
 from .report.detailedReportGenerator import DetailedReport
+import re, math
+from collections import Counter
+from difflib import SequenceMatcher
+
+WORD = re.compile(r'\w+')
 
 
 def homepage(request):
@@ -31,15 +36,15 @@ def model_form_upload(request):
             # print(file)
             form.save()
             # handle_uploaded_file(request.FILES['file'])
-            
-            
+
+
             #fetching the name of the file
             for filename, file in request.FILES.items() :
                 name = request.FILES[filename].name
             form.save()
             print("\n\n\n\n\n",name,"\n\n\n\n\n\n")
             ImageToTextConverter(name)
-            
+
             #checking the grammar
             syntax_check("text_"+name+".txt")
 
@@ -74,6 +79,18 @@ def generate(request):
         blueprint = request.POST.get('blueprint', None)
         data = {}
         result = evaluation(blueprint, answer)
+
+        vector1 = text_to_vector(answer)
+        vector2 = text_to_vector(blueprint)
+
+        cosine = get_cosine(vector1, vector2)
+
+        print('Cosine:', cosine)
+
+        ratio = SequenceMatcher(None, answer, blueprint).ratio()
+
+        print(ratio)
+
         if result.parse():
             data['result'] = 'success'
         else:
@@ -97,3 +114,20 @@ def generate_report(request):
     response.write(pdfFile.read())
     pdfFile.close()
     return response
+
+def text_to_vector(text):
+    words = WORD.findall(text)
+    return Counter(words)
+
+def get_cosine(vec1, vec2):
+    intersection = set(vec1.keys()) & set(vec2.keys())
+    numerator = sum([vec1[x] * vec2[x] for x in intersection])
+
+    sum1 = sum([vec1[x] ** 2 for x in vec1.keys()])
+    sum2 = sum([vec2[x] ** 2 for x in vec2.keys()])
+    denominator = math.sqrt(sum1) * math.sqrt(sum2)
+
+    if not denominator:
+        return 0.0
+    else:
+        return float(numerator) / denominator

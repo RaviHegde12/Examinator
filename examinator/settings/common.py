@@ -283,6 +283,7 @@ STATIC_URL = '/static/'
 KEY = "jBPGxwWKunbKkq8o"
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'documents')
 MEDIA_URL = '/documents/'
+LOGIN_REDIRECT_URL = '/'
 
 WHITENOISE_ROOT = os.path.join(PROJECT_ROOT, 'public')
 # Extra places for collectstatic to find static files.

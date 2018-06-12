@@ -29,6 +29,7 @@ preppy==2.6.0
 psycopg2==2.7.1
 pyparsing==2.2.0
 pyRXP==2.1.1
+pytesseract==0.2.2
 python-dateutil==2.7.2
 pytz==2018.3
 requests==2.18.4

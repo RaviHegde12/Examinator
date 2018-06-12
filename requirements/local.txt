@@ -35,6 +35,7 @@ pytz==2018.3
 requests==2.18.4
 simplejson==3.13.2
 six==1.11.0
+snips-nlu==0.14.0
 uritemplate==3.0.0
 urllib3==1.22
 whitenoise==3.3.0

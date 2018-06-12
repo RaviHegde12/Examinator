@@ -17,12 +17,28 @@ function generate()
             },
             success: function(response) {
                 console.log(response.result)
-                let report = document.getElementById("report");
+                let report = document.getElementById("result");
                 report.innerHTML = response.result;
             },
             error: function(result) {
                 console.log(result)
             }
         })
+    }
+}
+
+function download_answer()
+{
+    var answer = document.getElementById("answer-area").value;
+    if(answer === ''){
+        alert("Please enter the answer!!!")
+    }
+}
+
+function download_blueprint()
+{
+    var blueprint = document.getElementById("blueprint-area").value;
+    if(blueprint === ''){
+        alert("Please enter the blueprint!!!")
     }
 }

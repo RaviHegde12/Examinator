@@ -90,3 +90,17 @@ html, body {
   padding: 2%;
   color: white;
 }
+
+
+/* login page css */
+
+.form-container {
+  margin: 200px auto;
+}
+
+.form {
+  padding: 10px;
+  background: #ff78;
+  text-align: center;
+  box-shadow: 5px 5px 10px #888;
+}

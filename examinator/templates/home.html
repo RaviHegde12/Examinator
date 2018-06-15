@@ -17,7 +17,7 @@
         <div class="options">
           <button class="btn btn-primary" onclick="download_answer();">Save</button>
           {% if request.user.is_authenticated %}
-          <a class="link" href="{% url 'file_upload' %}">
+          <a class="link" href="{% url 'file_upload' file_id=1 %}">
             <div class="btn btn-primary">Upload</div>
           </a>
           {% else %}
@@ -34,7 +34,7 @@
         <div class="options1">
           <button class="btn btn-primary" onclick="download_blueprint();">Save</button>
           {% if request.user.is_authenticated %}
-          <a class="link" href="{% url 'file_upload' %}">
+          <a class="link" href="{% url 'file_upload' file_id=2 %}">
             <div class="btn btn-primary">Upload</div>
           </a>
           {% else %}

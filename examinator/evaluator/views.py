@@ -21,7 +21,7 @@ def homepage(request):
     return render(request, '../templates/home.html')
 
 
-def model_form_upload(request):
+def model_form_upload(request, file_id):
     if request.method == 'POST':
         # f = request.FILES['file'].read()
         # print(f)
@@ -43,8 +43,12 @@ def model_form_upload(request):
             syntax_check("text_"+name+".txt")
 
             # return redirect('process')
-            fileuploaded = Document.objects.first()
-            return render(request, 'process.html',{'file': fileuploaded})
+            fileuploaded = Document.objects.last()
+            if (int)(file_id) == 1:
+                filetype = "answer-sheet"
+            else:
+                filetype = "blueprint"
+            return render(request, 'process.html',{'file': fileuploaded, 'file_type': filetype})
 
     else:
         form = DocumentForm()

@@ -37,13 +37,14 @@ def model_form_upload(request):
             for filename, file in request.FILES.items() :
                 name = request.FILES[filename].name
             form.save()
-            print("\n\n\n\n\n",name,"\n\n\n\n\n\n")
             ImageToTextConverter(name)
 
             #checking the grammar
             syntax_check("text_"+name+".txt")
 
-            return redirect('homepage')
+            # return redirect('process')
+            fileuploaded = Document.objects.first()
+            return render(request, 'process.html',{'file': fileuploaded})
 
     else:
         form = DocumentForm()
@@ -89,6 +90,7 @@ def generate(request):
     else:
         return HttpResponse("Request method is not post!")
 
+
 def generate_report(request):
     response = HttpResponse(content_type='application/pdf')
     dirname = os.path.dirname(__file__)
@@ -98,3 +100,7 @@ def generate_report(request):
     response.write(pdfFile.read())
     pdfFile.close()
     return response
+
+
+def process(request):
+    return render(request, 'process.html')

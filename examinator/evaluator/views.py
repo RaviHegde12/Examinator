@@ -21,6 +21,10 @@ def homepage(request):
     return render(request, '../templates/home.html')
 
 
+blueprint = ""
+answer_list = []
+
+
 def model_form_upload(request, file_id):
     if request.method == 'POST':
         # f = request.FILES['file'].read()
@@ -37,7 +41,7 @@ def model_form_upload(request, file_id):
             for filename, file in request.FILES.items() :
                 name = request.FILES[filename].name
             form.save()
-            ImageToTextConverter(name)
+            text = ImageToTextConverter(name)
 
             #checking the grammar
             syntax_check("text_"+name+".txt")
@@ -46,9 +50,11 @@ def model_form_upload(request, file_id):
             fileuploaded = Document.objects.last()
             if (int)(file_id) == 1:
                 filetype = "answer-sheet"
+                answer_list.append(text)
             else:
                 message = "Successfully uploaded blueprint! Now upload the answer sheets!"
-                return render(request, 'home.html', {'message': message})
+                blueprint = text
+                return render(request, 'home.html', {'message': message, 'blueprint':blueprint})
             return render(request, 'process.html',{'file': fileuploaded, 'file_type': filetype})
 
     else:

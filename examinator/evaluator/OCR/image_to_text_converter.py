@@ -21,3 +21,4 @@ def ImageToTextConverter(file):
     text_ouput = open(MEDIA_ROOT+"/images/text_" + file + ".txt", "w")
     text_ouput.write(text)
     text_ouput.close()
+    return text

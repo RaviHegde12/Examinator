@@ -6,10 +6,11 @@ from itertools import product
 import pandas as pd
 import numpy
 import pickle
+from examinator.settings.common import MEDIA_ROOT
 
 
 def process(request):
-    df = open('/home/hasher/finalProject/Examinator/examinator/documents/images/text_Unit-test-blog-2.jpg.txt', "r")
+    df = open(MEDIA_ROOT+"/texts/answersheet.txt", "r")
     str1 = ""
     for line in df.readline():
         str1 = str1 + line
@@ -17,7 +18,7 @@ def process(request):
     # string2 = df['#2 String'].tolist()
     # Quality = df['Quality'].tolist()
     df.close()
-    df = open('/home/hasher/finalProject/Examinator/examinator/documents/images/blueprint.txt', "r")
+    df = open(MEDIA_ROOT+"/texts/blueprint.txt", "r")
     str2 = ""
     for line in df.readline():
         str2 = str2 + line

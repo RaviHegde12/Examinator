@@ -15,14 +15,11 @@ from django.views.decorators.csrf import csrf_exempt
 from .report.pdfReportGenerator import PdfReport
 from .report.reportCardGenerator import ReportCard
 from .report.detailedReportGenerator import DetailedReport
+from examinator.settings.common import MEDIA_ROOT
 
 
 def homepage(request):
     return render(request, '../templates/home.html')
-
-
-blueprint = ""
-answer_list = []
 
 
 def model_form_upload(request, file_id):
@@ -50,11 +47,11 @@ def model_form_upload(request, file_id):
             fileuploaded = Document.objects.last()
             if (int)(file_id) == 1:
                 filetype = "answer-sheet"
-                answer_list.append(text)
+                open(MEDIA_ROOT+"/texts/answersheet.txt", "w").write(text)
             else:
                 message = "Successfully uploaded blueprint! Now upload the answer sheets!"
-                blueprint = text
-                return render(request, 'home.html', {'message': message, 'blueprint':blueprint})
+                blueprint_file = open(MEDIA_ROOT + "/texts/blueprint.txt", "w").write(text)
+                return render(request, 'home.html', {'message': message})
             return render(request, 'process.html',{'file': fileuploaded, 'file_type': filetype})
 
     else:

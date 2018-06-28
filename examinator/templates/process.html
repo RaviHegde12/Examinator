@@ -5,7 +5,24 @@
 <body>
 You've uploaded <br>
 file-type : {{file_type}} <br>
-filename : {{file.description}}
+filename : {{file.description}}<br>
+<a href="{ url 'homepage' }"><button>Upload More Answer sheets</button></a>
+<button id="report-btn">Generate Report</button>
+
+<script type="text/javascript">
+    $('#report-btn').click(function(){
+    $.ajax(
+    {
+        type:"GET",
+        url: "/word_net",
+        success: function( data )
+        {
+            console.log(data)
+        }
+     })
+});
+</script>
+
 </body>
 
 {% endblock %}

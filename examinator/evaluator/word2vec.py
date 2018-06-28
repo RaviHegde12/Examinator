@@ -1,8 +1,8 @@
 from django.shortcuts import redirect
-
 from .doc_sim import DocSim
-
+from examinator.settings.common import MEDIA_ROOT
 from gensim.models.keyedvectors import KeyedVectors
+import nltk
 
 
 def word2vec(request):
@@ -11,11 +11,22 @@ def word2vec(request):
 
     ds = DocSim(w2v_model)
 
-    source_doc = 'Beggar had no money to buy chappals'
-    target_docs = [source_doc,'Beggar was so poor that he had no money' ,'Beggar was very rich and had lots of money', 'Beggar had nothing to buy slippers']
+    df = open(MEDIA_ROOT + "/texts/blueprint.txt", "r")
+    blueprint = df.read()
+    df.close()
+
+    # target_docs = [source_doc,'Beggar was so poor that he had no money' ,'Beggar was very rich and had lots of money', 'Beggar had nothing to buy slippers']
+
+    df = open(MEDIA_ROOT + "/texts/answersheet.txt", "r")
+    answer = df.read()
+    df.close()
+
+    answer = nltk.sent_tokenize(answer)
+
+    answer.append(blueprint)
 
     # This will return 3 target docs with similarity score
-    sim_scores = ds.calculate_similarity(source_doc, target_docs)
+    sim_scores = ds.calculate_similarity(blueprint, answer)
 
     print(sim_scores)
     return redirect('homepage')

@@ -47,7 +47,8 @@ def model_form_upload(request, file_id):
             if (int)(file_id) == 1:
                 filetype = "answer-sheet"
             else:
-                filetype = "blueprint"
+                message = "Successfully uploaded blueprint! Now upload the answer sheets!"
+                return render(request, 'home.html', {'message': message})
             return render(request, 'process.html',{'file': fileuploaded, 'file_type': filetype})
 
     else:

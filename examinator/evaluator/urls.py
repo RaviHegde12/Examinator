@@ -1,5 +1,7 @@
 from . import views
 from django.conf.urls import url
+from . import word_net
+from . import word2vec
 
 
 urlpatterns = [
@@ -9,4 +11,6 @@ urlpatterns = [
     url(r'^show_content/$', views.show_content, name='show_content'),
     url(r'^generate/$', views.generate, name='generate'),
     url(r'^report/$', views.generate_report, name='generateReport'),
+    url(r'^word_net/$', word_net.process, name='word_net'),
+    url(r'^word2vec/$', word2vec.word2vec, name='word2vec'),
 ]

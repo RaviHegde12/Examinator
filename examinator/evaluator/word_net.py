@@ -7,6 +7,7 @@ import pandas as pd
 import numpy
 import pickle
 from examinator.settings.common import MEDIA_ROOT
+from django.http import JsonResponse
 
 
 def process(request):
@@ -109,8 +110,8 @@ def process(request):
             # 'Quality': Quality,
             'Our_quality': sim_index
         })
-
-    print(sim_index)
     train.to_csv('./Wordnet_sim_results.csv', sep='\t')
 
-    return redirect('homepage')
+    sim_index.append(str1)
+    sim_index.append(str2)
+    return JsonResponse({'result':sim_index})

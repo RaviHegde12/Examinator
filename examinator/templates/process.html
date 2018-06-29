@@ -10,19 +10,52 @@
     <h2>filename : {{file.description}}</h2>
 </div>
 <div class="btn-holder"><a href="{% url 'homepage' %}"><button class="btn btn-primary">Upload More Answer sheets</button></a>
-<button class="btn btn-primary" id="report-btn">Generate Report</button>
+</div>
+    <div class="report">
+        <h3>Use one of the method to Generate Report</h3>
+        <button class="btn btn-primary" id="report-btn-1">Word Net</button>
+        <button class="btn btn-primary" id="report-btn-2">Word 2 Vec</button>
+    </div>
+<div class="result-holder">
+    <h2 id="result-score"></h2>
+    <h2 id="result-answer"></h2>
+    <h2 id="actual-result"></h2>
 </div>
 </div>
 
 <script type="text/javascript">
-    $('#report-btn').click(function(){
+    $('#report-btn-1').click(function(){
     $.ajax(
     {
         type:"GET",
         url: "/word_net",
         success: function( data )
         {
-            console.log(data)
+            console.log(data.result)
+            var result = JSON.stringify(data.result);
+            result = result.replace('[', '');
+            result = result.replace(']', '');
+            var new_result = result.split(",");
+            var first = "You've got " + new_result[0] + " out of 1";
+            document.getElementById("result-score").innerHTML = first;
+            var second = "Your answer : " + new_result[1];
+            document.getElementById("result-answer").innerHTML = second;
+            var third = "The expected answer : " + new_result[2];
+            document.getElementById("actual-result").innerHTML = third;
+        }
+     })
+});
+</script>
+
+<script type="text/javascript">
+    $('#report-btn-2').click(function(){
+    $.ajax(
+    {
+        type:"GET",
+        url: "/word2vec",
+        success: function( data )
+        {
+            console.log(data.sim_scores)
         }
      })
 });

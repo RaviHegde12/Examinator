@@ -132,3 +132,12 @@ html, body {
 .form-wrapper #id_document {
   display: inline;
 }
+
+.report {
+  text-align: center;
+}
+
+.result-holder {
+  margin-top: 30px;
+  padding-left: 100px;
+}

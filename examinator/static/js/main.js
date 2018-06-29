@@ -33,6 +33,10 @@ function download_answer()
     if(answer === ''){
         alert("Please enter the answer!!!")
     }
+    else {
+        var filename = "answersheet"+new Date().getTime()+".txt";
+        download(filename, answer);
+    }
 }
 
 function download_blueprint()
@@ -41,4 +45,18 @@ function download_blueprint()
     if(blueprint === ''){
         alert("Please enter the blueprint!!!")
     }
+    else {
+        var filename = "blueprint"+new Date().getTime()+".txt";
+        download(filename, blueprint);
+    }
+}
+
+function download(filename, downloadable){
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(downloadable));
+    element.setAttribute('download',filename);
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
 }

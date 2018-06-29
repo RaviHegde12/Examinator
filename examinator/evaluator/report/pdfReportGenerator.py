@@ -17,7 +17,7 @@ class PdfReport():
     def getReport(self):
         html = self.getHtml()
         try:
-            pdfkit.from_file(html, self.prepFileDir + '/' + self.outputFileName)
+            pdfkit.from_string(html, self.prepFileDir + '/' + self.outputFileName)
         finally:
             self.clean()
         return open(self.prepFileDir + '/' + self.outputFileName, 'rb')

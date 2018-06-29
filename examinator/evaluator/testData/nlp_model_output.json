@@ -1,0 +1,18 @@
+{
+    "model": "Word2vec",
+    "buleprint": "Beggar was poor",
+    "output": [
+        {
+            "Beggar was poor": 1.0
+        },
+        {
+            "Beggar was rich": 0.5
+        },
+        {
+            "Beggar didn't have anything": 0.8
+        },
+        {
+            "Beggar didn't needed": 0.6
+        }
+    ]
+}

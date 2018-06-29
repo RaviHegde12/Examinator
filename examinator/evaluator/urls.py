@@ -13,4 +13,5 @@ urlpatterns = [
     url(r'^report/$', views.generate_report, name='generateReport'),
     url(r'^word_net/$', word_net.process, name='word_net'),
     url(r'^word2vec/$', word2vec.word2vec, name='word2vec'),
+    url(r'^modeloutputreport/$', views.generate_model_report, name='modelreport')
 ]

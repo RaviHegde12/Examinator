@@ -15,6 +15,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .report.pdfReportGenerator import PdfReport
 from .report.reportCardGenerator import ReportCard
 from .report.detailedReportGenerator import DetailedReport
+from .report.word2vecReport import word2vecReportGenerator
 from examinator.settings.common import MEDIA_ROOT
 
 
@@ -105,6 +106,15 @@ def generate_report(request):
     filename = os.path.join(dirname, "./testData/marksGenerator.json")
     result = markGenerator(json.load(open(filename, 'r')))
     pdfFile = DetailedReport(json.load(open(filename, 'r')), 'subject').getPdf()
+    response.write(pdfFile.read())
+    pdfFile.close()
+    return response
+
+def generate_model_report(request):
+    response = HttpResponse(content_type='application/pdf')
+    dirname = os.path.dirname(__file__)
+    filename = os.path.join(dirname, "./testData/nlp_model_output.json")
+    pdfFile = word2vecReportGenerator(json.load(open(filename, 'r')), 'result').getPdf()
     response.write(pdfFile.read())
     pdfFile.close()
     return response

@@ -1,5 +1,6 @@
 import preppy
 from .pdfReportGenerator import PdfReport
+import pdfkit
 import os
 
 class DetailedReport(PdfReport):
@@ -34,6 +35,15 @@ class DetailedReport(PdfReport):
                 html_write.close()
                 self.pages.append(html_file)
         return self.pages
+
+    def getReport(self):
+        html = self.getHtml()
+        print(html)
+        try:
+            pdfkit.from_file(html, self.prepFileDir + '/' + self.outputFileName)
+        finally:
+            self.clean()
+        return open(self.prepFileDir + '/' + self.outputFileName, 'rb')
 
     def clean(self):
         for file in self.pages:

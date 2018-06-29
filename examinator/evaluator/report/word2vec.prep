@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 align="center">{{result['model']}}</h1>
+        <div id="model-output-report">
+            <h2>Blueprint: {{result['buleprint']}}</h2>
+            <table>
+                <tr>
+                    <th>Answer</th><th>Marks</th>
+                </tr>
+                {{ for index in range(len(result['output'])) }}
+                    {{ for key in result['output'][index] }}
+                        <tr>
+                            <td>{{key}}</td><td>{{result['output'][index][key]}}</td>
+                        </tr>
+                    {{ endfor }}
+                {{endfor}}
+            </table>
+        </div>
+    </body>
+</html>

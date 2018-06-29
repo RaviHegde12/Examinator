@@ -50,7 +50,7 @@
   <div class="row">
     <div class="col-sm-12 text-center">
       {% if request.user.is_authenticated %}
-      <button class="btn btn-primary" onclick="generate();">Generate Report</button>
+      <button id="generate-btn" class="btn btn-primary"">Generate Report</button>
       {% else %}
       <a href="{% url 'login' %}"><button class="btn btn-primary">Generate Report</button></a>
       {% endif %}
@@ -58,12 +58,48 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
-      <p id="result"></p>
+      <div class="result-holder">
+          <h2 id="result-score"></h2>
+          <h2 id="result-answer"></h2>
+          <h2 id="actual-result"></h2>
+      </div>
     </div>
   </div>
 </div>
 </div>
 <footer class="footer">Developed by Mohammed Usman, Nikhil Raj, Prathibha N and Ravi Hegde
 </footer>
+
+<script>
+    $('#generate-btn').click(function(){
+    var answer = document.getElementById("answer-area").value;
+    var blueprint = document.getElementById("blueprint-area").value;
+    if(answer === '' || blueprint === ''){
+        alert("Please enter the answer and blueprint!!!")
+    }
+   else {
+    $.ajax(
+    {
+        type:"GET",
+        url: "/word_net",
+        success: function( data )
+        {
+            console.log(data.result)
+            var result = JSON.stringify(data.result);
+            result = result.replace('[', '');
+            result = result.replace(']', '');
+            var new_result = result.split(",");
+            var first = "You've got " + new_result[0] + " out of 1";
+            document.getElementById("result-score").innerHTML = first;
+            var second = "Your answer : " + new_result[1];
+            document.getElementById("result-answer").innerHTML = second;
+            var third = "The expected answer : " + new_result[2];
+            document.getElementById("actual-result").innerHTML = third;
+        }
+     })
+     }
+});
+</script>
+
 </body>
 {% endblock %}

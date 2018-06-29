@@ -3,11 +3,16 @@
 {% block content %}
 
 <body>
-You've uploaded <br>
-file-type : {{file_type}} <br>
-filename : {{file.description}}<br>
-<a href="{ url 'homepage' }"><button>Upload More Answer sheets</button></a>
-<button id="report-btn">Generate Report</button>
+<div class="container-fluid">
+<div class="description">
+    <h2>Upload Successful!</h2>
+    <h2>file-type : {{file_type}}</h2>
+    <h2>filename : {{file.description}}</h2>
+</div>
+<div class="btn-holder"><a href="{% url 'homepage' %}"><button class="btn btn-primary">Upload More Answer sheets</button></a>
+<button class="btn btn-primary" id="report-btn">Generate Report</button>
+</div>
+</div>
 
 <script type="text/javascript">
     $('#report-btn').click(function(){

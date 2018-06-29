@@ -1,7 +1,6 @@
 html, body {
   height: 100%;
   margin: 0;
-  background-color: #f9f9f9 !important;
 }
 #wrap {
     padding: 10px;
@@ -103,4 +102,33 @@ html, body {
   background: #ff78;
   text-align: center;
   box-shadow: 5px 5px 10px #888;
+}
+
+.description {
+  padding-left: 100px;
+  margin-bottom: 50px;
+}
+
+.btn-holder {
+  padding-left: 100px;
+}
+
+.btn-holder button {
+  margin-right: 50px;
+}
+
+.upload-form {
+  margin-bottom: 50px;
+}
+
+.form-wrapper {
+  margin: 50px;
+}
+
+.upload-form button {
+  margin-left : 50px;
+}
+
+.form-wrapper #id_document {
+  display: inline;
 }

@@ -3,7 +3,8 @@ from .doc_sim import DocSim
 from examinator.settings.common import MEDIA_ROOT
 from gensim.models.keyedvectors import KeyedVectors
 import nltk
-from django.http import JsonResponse
+from django.http import HttpRequest
+from .views import generate_model_report
 
 
 def word2vec(request):
@@ -23,10 +24,15 @@ def word2vec(request):
     df.close()
 
     answer = nltk.sent_tokenize(answer)
+    print(answer)
 
     answer.append(blueprint)
 
     # This will return 3 target docs with similarity score
     sim_scores = ds.calculate_similarity(blueprint, answer)
 
-    return JsonResponse({'result': sim_scores}, safe=False)
+    output = dict()
+    output.update({'model': 'Word2vec', 'blueprint': blueprint, 'output': sim_scores})
+    request = HttpRequest()
+    request.output = output
+    return generate_model_report(request)

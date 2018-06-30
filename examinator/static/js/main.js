@@ -1,3 +1,11 @@
+function generate(){
+    var answer = document.getElementById("answer-area").value;
+    var blueprint = document.getElementById("blueprint-area").value;
+    if(answer === '' || blueprint === ''){
+        alert("Please enter the answer and blueprint!!!")
+    }
+}
+
 function download_answer()
 {
     var answer = document.getElementById("answer-area").value;

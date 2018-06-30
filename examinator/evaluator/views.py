@@ -113,8 +113,9 @@ def generate_report(request):
 def generate_model_report(request):
     response = HttpResponse(content_type='application/pdf')
     dirname = os.path.dirname(__file__)
-    filename = os.path.join(dirname, "./testData/nlp_model_output.json")
-    pdfFile = word2vecReportGenerator(json.load(open(filename, 'r')), 'result').getPdf()
+    #filename = os.path.join(dirname, "./testData/nlp_model_output.json")
+    #pdfFile = word2vecReportGenerator(json.load(open(filename, 'r')), 'result').getPdf()
+    pdfFile = word2vecReportGenerator(request.output, 'result').getPdf()
     response.write(pdfFile.read())
     pdfFile.close()
     return response

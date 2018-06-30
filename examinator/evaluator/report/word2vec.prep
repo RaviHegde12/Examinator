@@ -9,7 +9,7 @@
     <body>
         <h1 align="center">{{result['model']}}</h1>
         <div id="model-output-report">
-            <h2>Blueprint: {{result['buleprint']}}</h2>
+            <h2>Blueprint: {{result['blueprint']}}</h2>
             <table>
                 <tr>
                     <th>Answer</th><th>Marks</th>

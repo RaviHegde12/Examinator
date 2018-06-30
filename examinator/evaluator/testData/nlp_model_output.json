@@ -1,6 +1,6 @@
 {
     "model": "Word2vec",
-    "buleprint": "Beggar was poor",
+    "blueprint": "Beggar was poor",
     "output": [
         {
             "Beggar was poor": 1.0

@@ -37,6 +37,6 @@ simplejson==3.13.2
 six==1.11.0
 snips-nlu==0.14.0
 uritemplate==3.0.0
-urllib3==1.22
+urllib3==1.26.5
 whitenoise==3.3.0
 wkhtmltopdf==0.2

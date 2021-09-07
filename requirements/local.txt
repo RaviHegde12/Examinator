@@ -22,7 +22,7 @@ numpy==1.14.0
 openapi-codec==1.3.2
 pandas==0.22.0
 pdfkit==0.6.1
-Pillow==5.1.0
+Pillow==8.3.2
 pkg-resources==0.0.0
 Pmw==2.0.0
 preppy==2.6.0

@@ -14,7 +14,7 @@ django-bootstrap3 == 9.1
 psycopg2==2.7.1
 Pillow==5.1.0
 preppy==2.6.0
-reportlab==3.4.0
+reportlab==3.5.55
 numpy==1.14.2
 pdfkit==0.6.1
 
